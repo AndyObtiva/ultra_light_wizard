@@ -1,7 +1,7 @@
-module AbstractFeatureBranch
+module UltraLightWizard
   module Generators
-    class ModelGenerator < Rails::Generators::NamedBase
-      #Begin (copied from resource generator)
+    class ResourceGenerator < Rails::Generators::NamedBase
+      #Begin (copied from rails/railties/lib/rails/generators/rails/resource/resource_generator.rb)
       include ResourceHelpers
 
       hook_for :resource_controller, :required => true do |controller|
@@ -14,6 +14,10 @@ module AbstractFeatureBranch
       hook_for :resource_route, :required => true
       #End
 
+      #Begin (copied from rails/railties/lib/rails/generators/rails/model/model_generator.rb)
+      argument :attributes, :type => :array, :default => [], :banner => "field[:type][:index] field[:type][:index]"
+      hook_for :orm, :required => true
+      #End
 
       source_root File.expand_path("../../templates", __FILE__)
 
@@ -22,8 +26,6 @@ module AbstractFeatureBranch
         template "config/features.yml", "config/features/#{file_path}.yml"
       end
 
-      argument :attributes, :type => :array, :default => [], :banner => "field[:type][:index] field[:type][:index]"
-      hook_for :orm, :required => true
     end
   end
 end
