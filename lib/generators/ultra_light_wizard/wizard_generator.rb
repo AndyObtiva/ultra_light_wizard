@@ -23,6 +23,7 @@ module UltraLightWizard
         steps.each do |step|
           @wizard_step = step
           template "app/models/wizard_step_model.rb.erb", "app/models/#{file_path}/#{step}.rb"
+          template "app/views/wizard_step_view.html.erb", "app/views/#{file_path}_#{step_alias.pluralize}/#{step}.html.erb"
         end
         wizard_route_content = <<-CONTENT
 resources :#{plural_file_name}, only: [:create, :show] do

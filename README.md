@@ -16,4 +16,5 @@ TODO
   - View parts
   - Helper (or Controller SuperModule trait) for ultra light wizard support
   - Support for nested resources
+  - Modularize (perhaps extracting sub-generators)
 + Customize name conventions
