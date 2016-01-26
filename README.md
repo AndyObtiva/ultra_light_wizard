@@ -10,8 +10,10 @@ TODO
 ====
 
 - Wizard step generator (model part builder MVC components)
-  - Controller SuperModule trait for ultra light wizard support
-  - Controller steps
-  - Model parts
+  + Routes
+  + Controller steps
+  + Model parts
   - View parts
-- Customize name conventions
+  - Helper (or Controller SuperModule trait) for ultra light wizard support
+  - Support for nested resources
++ Customize name conventions
