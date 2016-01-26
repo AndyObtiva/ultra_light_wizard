@@ -26,10 +26,16 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "README.md",
     "Rakefile",
+    "VERSION",
+    "lib/generators/templates/app/controllers/wizard_steps_controller.rb.erb",
+    "lib/generators/templates/app/models/wizard_step_model.rb.erb",
+    "lib/generators/templates/app/views/wizard_step_view.html.erb",
+    "lib/generators/ultra_light_wizard/wizard_generator.rb",
     "lib/ultra_light_wizard.rb",
     "ruby187.Gemfile",
     "spec/spec_helper.rb",
-    "spec/ultra_light_wizard/ultra_light_wizard_spec.rb"
+    "spec/ultra_light_wizard/ultra_light_wizard_spec.rb",
+    "ultra_light_wizard.gemspec"
   ]
   s.homepage = "http://github.com/AndyObtiva/ultra_light_wizard"
   s.licenses = ["MIT"]
