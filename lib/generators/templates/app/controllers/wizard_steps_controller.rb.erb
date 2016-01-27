@@ -1,5 +1,5 @@
 class <%= class_name %><%= step_alias.pluralize.camelize %>Controller < ApplicationController
-  before_action :authorize_<%= file_path %>
+  before_action :load_<%= file_path %>
 
   <%= step_alias.pluralize.upcase %> = %w(<%= steps.to_a.join(' ') %>)
 
@@ -29,11 +29,8 @@ class <%= class_name %><%= step_alias.pluralize.camelize %>Controller < Applicat
 
   private
 
-  def authorize_<%= file_path %>
+  def load_<%= file_path %>
     @<%= file_path %> = <%= file_path %>_<%= step_alias %>_model
-    if @<%= file_path %>.user_id != current_user.id && !current_user.is_admin?
-      render(:file => "#{Rails.root.to_s}/public/403.html", :layout => false, :status => 403)
-    end
   end
 
   def <%= file_path %>_<%= step_alias %>_model

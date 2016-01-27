@@ -20,6 +20,8 @@ module UltraLightWizard
       desc "Creates a configuration file for a specific application context (e.g. admin). Takes context path as argument (e.g. admin or internal/wiki) to create config/features/[context_path].yml"
       def copy_config
         template "app/controllers/wizard_steps_controller.rb.erb", "app/controllers/#{file_path}_#{step_alias.pluralize}_controller.rb"
+        template "app/helpers/wizard_steps_helper.rb.erb", "app/helpers/#{file_path}_#{step_alias.pluralize}_helper.rb"
+        template "app/views/wizard_step_navigation_view.html.erb", "app/views/#{file_path}_#{step_alias.pluralize}/_#{step_alias}_navigation.html.erb"
         steps.each do |step|
           @wizard_step = step
           template "app/models/wizard_step_model.rb.erb", "app/models/#{file_path}/#{step}.rb"

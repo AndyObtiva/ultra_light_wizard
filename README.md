@@ -71,7 +71,8 @@ Features
   + [DONE] Controller steps
   + [DONE] Model parts
   + [DONE] View parts
-  - Helper (or Controller SuperModule trait) for ultra light wizard support
+  + [DONE] View navigation
+  + [DONE] Helper (or Controller SuperModule trait) for ultra light wizard support
   - Forms
   - Support for nested resources
   - Modularize (perhaps extracting sub-generators)

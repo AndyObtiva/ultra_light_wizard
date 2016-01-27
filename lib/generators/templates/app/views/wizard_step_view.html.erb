@@ -1,2 +1,3 @@
 <h1><%= file_path.humanize %> wizard</h1>
 <h2><%= step_alias.titleize %>: <%= @wizard_step.humanize %></h2>
+<%%= render '<%= step_alias %>_navigation' %>
