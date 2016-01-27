@@ -61,18 +61,19 @@ Once the files are generated, you can proceed to place your own code customizati
 
 To learn more about the Ultra Light Wizard philosophy and function, please read this [Code Painter](http://www.codepainter.ca) blog post: [Ultra Light & Maintainable Wizard in Rails] (http://www.codepainter.ca/2013/10/ultra-light-maintainable-wizards-in.html)
 
-TODO
-====
+Features
+========
 
 - Wizard step generator (model part builder MVC components)
-  + Routes
-  + Controller steps
-  + Model parts
-  + View parts
+  + [DONE] Routes
+  + [DONE] Controller steps
+  + [DONE] Model parts
+  + [DONE] View parts
   - Helper (or Controller SuperModule trait) for ultra light wizard support
+  - Forms
   - Support for nested resources
   - Modularize (perhaps extracting sub-generators)
-+ Customize name conventions
+  - [DONE] Customize name conventions
 
 License
 =======
