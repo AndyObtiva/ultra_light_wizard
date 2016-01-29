@@ -66,10 +66,11 @@ To learn more about the Ultra Light Wizard philosophy and function, please read 
 Principles
 ==========
 
-- REST: wizard steps are represented as REST nested resources under the model resource being created
+- REST: wizard steps are represented as REST nested resources under the model resource being built
 - MVC: respects MVC separation of concerns
-- OO: honors OO principles of coupling and cohesion
-- DDD: supports domain concepts with its customizable vocabulary
+- OO: honors OO principles of low coupling and high cohesion
+- Design Patterns: wizard is simply a model Builder
+- DDD: supports domain concepts directly with customizable vocabulary
 - Non-Functional Requirements:
   - Productivity: minimum effort for adding wizards and wizard steps
   - Maintainability: minimum code to maintain while adhering to other principles
