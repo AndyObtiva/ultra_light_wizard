@@ -1,9 +1,9 @@
 <ul>
   <%% if <%= "previous_#{step_alias}" %>.present? %>
-    <li><%%= link_to "Previous <%= step_alias %>", edit_<%= file_path %>_<%= file_path %>_<%= step_alias %>_path(<%= file_path %>_<%= step_alias %>_model, previous_step) %></li>
+    <li><%%= link_to "Previous <%= step_alias %>", edit_<%= file_path %>_<%= file_path %>_<%= step_alias %>_path(<%= file_path %>_<%= step_alias %>_model, previous_<%= step_alias %>) %></li>
   <%% end %>
   <%% if <%= "next_#{step_alias}" %>.present? %>
-    <li><%%= link_to "Next <%= step_alias %>", edit_<%= file_path %>_<%= file_path %>_<%= step_alias %>_path(<%= file_path %>_<%= step_alias %>_model, next_step) %></li>
+    <li><%%= link_to "Next <%= step_alias %>", edit_<%= file_path %>_<%= file_path %>_<%= step_alias %>_path(<%= file_path %>_<%= step_alias %>_model, next_<%= step_alias %>) %></li>
   <%% else %>
     <li><%%= link_to "Finish <%= step_alias %>", <%= file_path %>_path(<%= file_path %>_<%= step_alias %>_model) %></li>
   <%% end %>

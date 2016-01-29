@@ -11,13 +11,13 @@ https://www.youtube.com/watch?v=muyfoiKHMMA
 Instructions
 ============
 
-rails generate ultra_light_wizard:wizard (resource) steps=(step1),(step2),(step3),...
+```rails generate ultra_light_wizard:wizard (resource) steps=(step1),(step2),(step3),...```
 
 This will generate wizard step routes, controller, models, and views
 
 Example:
 
-rails generate ultra_light_wizard:wizard Project steps:basic_info,project_detail,file_uploads,preview
+```rails generate ultra_light_wizard:wizard Project steps:basic_info,project_detail,file_uploads,preview```
 
 Output:
 
@@ -40,7 +40,7 @@ If you'd like to customize the term "step", you can add a step_alias:(alias) opt
 
 Example:
 
-rails generate ultra_light_wizard:wizard Project steps:basic_info,project_detail,file_uploads,preview step_alias:part
+```rails generate ultra_light_wizard:wizard Project steps:basic_info,project_detail,file_uploads,preview step_alias:part```
 
 Output:
 
@@ -63,6 +63,19 @@ Once the files are generated, you can proceed to place your own code customizati
 
 To learn more about the Ultra Light Wizard philosophy and function, please read this [Code Painter](http://www.codepainter.ca) blog post: [Ultra Light & Maintainable Wizard in Rails] (http://www.codepainter.ca/2013/10/ultra-light-maintainable-wizards-in.html)
 
+Principles
+==========
+
+- REST: wizard steps are represented as REST nested resources under the model resource being created
+- MVC: respects MVC separation of concerns
+- OO: honors OO principles of coupling and cohesion
+- DDD: supports domain concepts with its customizable vocabulary
+- Non-Functional Requirements:
+  - Productivity: minimum effort for adding wizards and wizard steps
+  - Maintainability: minimum code to maintain while adhering to other principles
+  - Performance: stateless design means scalability
+  - Security: stateless design is compatible with Rails security measures
+
 Features
 ========
 
@@ -73,10 +86,12 @@ Features
   + [DONE] View parts
   + [DONE] View navigation
   + [DONE] Helper (or Controller SuperModule trait) for ultra light wizard support
+  + [DONE] Route helper methods
   - Forms
   - Support for nested resources
   - Modularize (perhaps extracting sub-generators)
-  - [DONE] Customize name conventions
+  + [DONE] Customize name conventions
+  - Write automated tests
 
 License
 =======

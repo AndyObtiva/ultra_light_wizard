@@ -20,5 +20,17 @@ module <%= class_name %><%= step_alias.pluralize.camelize %>Helper
     previous_<%= step_alias %>_index = current_<%= step_alias %>_index-1
     previous_<%= step_alias %>_index < 0 ? nil : <%= step_alias.pluralize.upcase %>[previous_<%= step_alias %>_index]
   end
+  <% %w(path url).each do |route_term| %>
+  def next_<%= step_alias %>_<%= route_term %>
+    <%= file_path %>_<%= step_alias %>_model_<%= route_term %>(next_<%= step_alias %>)
+  end
 
+  def previous_<%= step_alias %>_<%= route_term %>
+    <%= file_path %>_<%= step_alias %>_model_<%= route_term %>(previous_<%= step_alias %>)
+  end
+
+  def <%= file_path %>_<%= step_alias %>_model_<%= route_term %>(<%= step_alias %>)
+    edit_<%= file_path %>_<%= file_path %>_<%= step_alias %>_<%= route_term %>(<%= file_path %>_<%= step_alias %>_model, <%= step_alias %>)
+  end
+  <% end %>
 end
