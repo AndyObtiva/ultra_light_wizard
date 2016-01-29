@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 group :development do
-  gem 'jeweler'
+  gem 'jeweler', '~> 1.8.8'
 end
 
 group :test do

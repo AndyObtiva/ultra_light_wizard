@@ -17,8 +17,29 @@ module UltraLightWizard
         arguments['steps'].to_s.split(',').map(&:strip)
       end
 
+      def controller_class_name
+        file_path.pluralize.titleize
+      end
+
+      def orm_class
+        file_path.camelize.titleize
+      end
+
+      def index_helper
+        file_path.pluralize
+      end
+
+      def human_name
+        file_path.humanize
+      end
+
+      def plural_table_name
+        file_path.pluralize
+      end
+
       desc "Creates a configuration file for a specific application context (e.g. admin). Takes context path as argument (e.g. admin or internal/wiki) to create config/features/[context_path].yml"
       def copy_config
+        template "app/controllers/model_controller.rb.erb", "app/controllers/#{file_path.pluralize}_controller.rb"
         template "app/controllers/wizard_steps_controller.rb.erb", "app/controllers/#{file_path}_#{step_alias.pluralize}_controller.rb"
         template "app/helpers/wizard_steps_helper.rb.erb", "app/helpers/#{file_path}_#{step_alias.pluralize}_helper.rb"
         template "app/views/wizard_step_navigation_view.html.erb", "app/views/#{file_path}_#{step_alias.pluralize}/_#{step_alias}_navigation.html.erb"

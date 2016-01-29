@@ -10,23 +10,32 @@ module <%= class_name %><%= step_alias.pluralize.camelize %>Helper
     <%= step_alias.pluralize.upcase %>.find {|a_<%= step_alias %>| a_<%= step_alias %> == params[:id].to_s.downcase}
   end
 
-  def next_<%= step_alias %>
-    current_<%= step_alias %>_index = <%= step_alias.pluralize.upcase %>.index(<%= step_alias %>)
-    <%= step_alias.pluralize.upcase %>[current_<%= step_alias %>_index+1]
-  end
-
   def previous_<%= step_alias %>
     current_<%= step_alias %>_index = <%= step_alias.pluralize.upcase %>.index(<%= step_alias %>)
     previous_<%= step_alias %>_index = current_<%= step_alias %>_index-1
     previous_<%= step_alias %>_index < 0 ? nil : <%= step_alias.pluralize.upcase %>[previous_<%= step_alias %>_index]
   end
+
+  def next_<%= step_alias %>
+    current_<%= step_alias %>_index = <%= step_alias.pluralize.upcase %>.index(<%= step_alias %>)
+    <%= step_alias.pluralize.upcase %>[current_<%= step_alias %>_index+1]
+  end
+
   <% %w(path url).each do |route_term| %>
-  def next_<%= step_alias %>_<%= route_term %>
-    <%= file_path %>_<%= step_alias %>_model_<%= route_term %>(next_<%= step_alias %>)
+  def first_<%= step_alias %>_<%= route_term %>
+    <%= file_path %>_<%= step_alias %>_model_<%= route_term %>(<%= step_alias.pluralize.upcase %>.first)
   end
 
   def previous_<%= step_alias %>_<%= route_term %>
     <%= file_path %>_<%= step_alias %>_model_<%= route_term %>(previous_<%= step_alias %>)
+  end
+
+  def next_<%= step_alias %>_<%= route_term %>
+    <%= file_path %>_<%= step_alias %>_model_<%= route_term %>(next_<%= step_alias %>)
+  end
+
+  def last_<%= step_alias %>_<%= route_term %>
+    <%= file_path %>_<%= step_alias %>_model_<%= route_term %>(<%= step_alias.pluralize.upcase %>.last)
   end
 
   def <%= file_path %>_<%= step_alias %>_model_<%= route_term %>(<%= step_alias %>)

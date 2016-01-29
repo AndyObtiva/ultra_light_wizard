@@ -1,0 +1,37 @@
+<% if namespaced? -%>
+require_dependency "<%= namespaced_file_path %>/application_controller"
+
+<% end -%>
+<% module_namespacing do -%>
+class <%= controller_class_name %>Controller < ApplicationController
+  before_action :set_<%= singular_table_name %>, only: [:show, :destroy]
+
+  # GET <%= route_url %>
+  def index
+    @<%= plural_table_name %> = <%= orm_class %>.all
+  end
+
+  # GET <%= route_url %>/1
+  def show
+  end
+
+  # POST <%= route_url %>
+  def create
+    @<%= singular_table_name %> = <%= orm_class %>.new
+    @<%= singular_table_name %>.save(validation: false)
+    redirect_to edit_<%= file_path %>_<%= file_path %>_<%= step_alias %>_path(@<%= singular_table_name %>, <%= orm_class %><%= step_alias.camelize.titleize.pluralize %>Helper::<%= step_alias.pluralize.upcase %>.first)
+  end
+
+  # DELETE <%= route_url %>/1
+  def destroy
+    @<%= singular_table_name %>.destroy
+    redirect_to <%= index_helper %>_url, notice: <%= "'#{human_name} was successfully destroyed.'" %>
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_<%= singular_table_name %>
+      @<%= singular_table_name %> = <%= orm_class %>.find(params[:id])
+    end
+end
+<% end -%>

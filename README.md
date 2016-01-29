@@ -61,6 +61,12 @@ end
 
 Once the files are generated, you can proceed to place your own code customizations in the wizard step models and views.
 
+To kick-off wizard, simply trigger the main model controller create action, and it will transition to the wizard step first step edit action.
+
+For example, the following will kick-off the project wizard by creating a project and automatically redirecting to first step:
+
+```<%= link_to 'New Project', projects_path, method: :post %>```
+
 To learn more about the Ultra Light Wizard philosophy and function, please read this [Code Painter](http://www.codepainter.ca) blog post: [Ultra Light & Maintainable Wizard in Rails] (http://www.codepainter.ca/2013/10/ultra-light-maintainable-wizards-in.html)
 
 Principles
@@ -88,7 +94,9 @@ Features
   + [DONE] View navigation
   + [DONE] Helper (or Controller SuperModule trait) for ultra light wizard support
   + [DONE] Route helper methods
+  + [DONE] Wizard kick-off helper/view
   - Forms
+  - Scaffolding of main model controller/views/migration
   - Support for nested resources
   - Modularize (perhaps extracting sub-generators)
   + [DONE] Customize name conventions
