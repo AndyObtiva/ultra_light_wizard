@@ -1,4 +1,5 @@
 class <%= class_name %><%= step_alias.pluralize.camelize %>Controller < ApplicationController
+  include <%= class_name %><%= step_alias.pluralize.camelize %>Helper
   before_action :load_<%= file_path %>
 
   <%= step_alias.pluralize.upcase %> = %w(<%= steps.to_a.join(' ') %>)
@@ -16,8 +17,8 @@ class <%= class_name %><%= step_alias.pluralize.camelize %>Controller < Applicat
   end
 
   def update
-    if <%= file_path %>_<%= step_alias %>_model.update_attributes(params[:<%= file_path %>])
-      if next_<%= step_alias %> && params[:commit].downcase.include?('continue')
+    if <%= file_path %>_<%= step_alias %>_model.update_attributes(<%= file_path %>_params || {})
+      if next_<%= step_alias %> && params[:commit].downcase.include?('next')
         redirect_to edit_<%= file_path %>_<%= file_path %>_<%= step_alias %>_path(<%= file_path %>_<%= step_alias %>_model, next_<%= step_alias %>)
       else
         redirect_to <%= file_path %>_path(@<%= file_path %>)
@@ -33,18 +34,8 @@ class <%= class_name %><%= step_alias.pluralize.camelize %>Controller < Applicat
     @<%= file_path %> = <%= file_path %>_<%= step_alias %>_model
   end
 
-  def <%= file_path %>_<%= step_alias %>_model
-    <%= file_path %>_class = "<%= class_name %>::#{<%= step_alias %>.camelcase}".constantize rescue <%= class_name %>
-    <%= file_path %>_class.find(params[:<%= file_path %>_id])
-  end
-
-  def <%= step_alias %>
-    <%= step_alias.pluralize.upcase %>.find {|a_<%= step_alias %>| a_<%= step_alias %> == params[:id].to_s.downcase}
-  end
-
-  def next_<%= step_alias %>
-    current_<%= step_alias %>_index = <%= step_alias.pluralize.upcase %>.index(<%= step_alias %>)
-    next_<%= step_alias %> = <%= step_alias.pluralize.upcase %>[current_<%= step_alias %>_index+1]
+  def <%= file_path %>_params
+    params.require(:<%= file_path %>).permit(<%= controller_attribute_names %>)
   end
 
 end

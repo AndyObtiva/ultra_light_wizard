@@ -29,6 +29,10 @@ module UltraLightWizard
         file_path.pluralize
       end
 
+      def controller_attribute_names
+        [].join(',')
+      end
+
       def human_name
         file_path.humanize
       end

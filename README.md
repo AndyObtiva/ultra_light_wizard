@@ -95,8 +95,9 @@ Features
   + [DONE] Helper (or Controller SuperModule trait) for ultra light wizard support
   + [DONE] Route helper methods
   + [DONE] Wizard kick-off helper/view
-  - Forms
+  + [DONE] Forms
   - Scaffolding of main model controller/views/migration
+  - Support for attributes
   - Support for nested resources
   - Modularize (perhaps extracting sub-generators)
   + [DONE] Customize name conventions
