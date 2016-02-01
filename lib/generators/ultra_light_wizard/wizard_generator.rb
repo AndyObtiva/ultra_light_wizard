@@ -4,8 +4,10 @@ module UltraLightWizard
       source_root File.expand_path("../../templates", __FILE__)
       def arguments
         args.inject({}) do |output, arg|
-          arg_parts = arg.split(':')
-          output.merge(arg_parts.first => arg_parts.last)
+          # Accommodate argument values containing colon by matching against
+          # occurance of it only
+          arg_parts = arg.match(/^([^:]+)\:(.+)$/)
+          output.merge(arg_parts[1] => arg_parts[2])
         end
       end
 
@@ -29,8 +31,23 @@ module UltraLightWizard
         file_path.pluralize
       end
 
+      def model_attributes
+        arguments['attributes']
+      end
+
+      def hashed_model_attributes
+        model_attributes.split(',').inject({}) do |output, pair|
+          split_pair = pair.split(':')
+          output.merge(split_pair.first => split_pair.last)
+        end
+      end
+
+      def scaffold_attributes
+        model_attributes.sub(',', ' ')
+      end
+
       def controller_attribute_names
-        [].join(',')
+        hashed_model_attributes.keys.map {|key| "\"#{key}\""}.join(', ')
       end
 
       def human_name
@@ -43,6 +60,7 @@ module UltraLightWizard
 
       desc "Creates a configuration file for a specific application context (e.g. admin). Takes context path as argument (e.g. admin or internal/wiki) to create config/features/[context_path].yml"
       def copy_config
+        generate "scaffold", "#{file_path} #{scaffold_attributes}"
         template "app/controllers/model_controller.rb.erb", "app/controllers/#{file_path.pluralize}_controller.rb"
         template "app/controllers/wizard_steps_controller.rb.erb", "app/controllers/#{file_path}_#{step_alias.pluralize}_controller.rb"
         template "app/helpers/wizard_steps_helper.rb.erb", "app/helpers/#{file_path}_#{step_alias.pluralize}_helper.rb"

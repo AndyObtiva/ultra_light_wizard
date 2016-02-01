@@ -11,50 +11,134 @@ https://www.youtube.com/watch?v=muyfoiKHMMA
 Instructions
 ============
 
-```rails generate ultra_light_wizard:wizard (resource) steps=(step1),(step2),(step3),...```
+Simply use the following command in place of the Rails scaffold generator, and it will scaffold both standard resource and wizard components
+
+```rails generate ultra_light_wizard:wizard (resource) steps:(step1),(step2),(step3),... attributes:(attribute1:db_type1),(attribute2:db_type2),...```
 
 This will generate wizard step routes, controller, models, and views
 
 Example:
 
-```rails generate ultra_light_wizard:wizard Project steps:basic_info,project_detail,file_uploads,preview```
+```rails generate ultra_light_wizard:wizard Project steps:basic_info,project_detail,file_uploads,preview attributes:name:string,description:text,start_date:date,delivery_date:date```
 
 Output:
 
 ```
-create  app/controllers/project_steps_controller.rb
-create  app/models/project/basic_info.rb
-create  app/views/project_steps/basic_info.html.erb
-create  app/models/project/project_detail.rb
-create  app/views/project_steps/project_detail.html.erb
-create  app/models/project/file_uploads.rb
-create  app/views/project_steps/file_uploads.html.erb
-create  app/models/project/preview.rb
-create  app/views/project_steps/preview.html.erb
- route  resources :projects, only: [:create, :show] do
+generate  scaffold
+  invoke  active_record
+  create    db/migrate/20160201025849_create_projects.rb
+  create    app/models/project.rb
+  invoke    test_unit
+  create      test/models/project_test.rb
+  create      test/fixtures/projects.yml
+  invoke  resource_route
+   route    resources :projects
+  invoke  scaffold_controller
+  create    app/controllers/projects_controller.rb
+  invoke    erb
+  create      app/views/projects
+  create      app/views/projects/index.html.erb
+  create      app/views/projects/edit.html.erb
+  create      app/views/projects/show.html.erb
+  create      app/views/projects/new.html.erb
+  create      app/views/projects/_form.html.erb
+  invoke    test_unit
+  create      test/controllers/projects_controller_test.rb
+  invoke    helper
+  create      app/helpers/projects_helper.rb
+  invoke      test_unit
+  invoke    jbuilder
+  create      app/views/projects/index.json.jbuilder
+  create      app/views/projects/show.json.jbuilder
+  invoke  assets
+  invoke    coffee
+  create      app/assets/javascripts/projects.coffee
+  invoke    scss
+  create      app/assets/stylesheets/projects.scss
+  invoke  scss
+identical    app/assets/stylesheets/scaffolds.scss
+conflict  app/controllers/projects_controller.rb
+Overwrite /cygdrive/c/Users/a_mal_000/OneDrive/code/rails_example/app/controllers/projects_controller.rb? (enter "h" for help) [Ynaqdh] a
+   force  app/controllers/projects_controller.rb
+  create  app/controllers/project_steps_controller.rb
+  create  app/helpers/project_steps_helper.rb
+  create  app/views/project_steps/_step_navigation.html.erb
+  create  app/models/project/name.rb
+  create  app/views/project_steps/name.html.erb
+  create  app/models/project/description.rb
+  create  app/views/project_steps/description.html.erb
+  create  app/models/project/start_date.rb
+  create  app/views/project_steps/start_date.html.erb
+  create  app/models/project/delivery_date.rb
+  create  app/views/project_steps/delivery_date.html.erb
+  create  app/models/project/preview.rb
+  create  app/views/project_steps/preview.html.erb
+   route  resources :projects, only: [:create, :show] do
 resources :project_steps, only: [:edit, :update]
 end
 ```
+
+It will ask you at one point to overwrite projects_controller generated in included scaffold. Type y or a to have it continue.
 
 If you'd like to customize the term "step", you can add a step_alias:(alias) option as in the following:
 
 Example:
 
-```rails generate ultra_light_wizard:wizard Project steps:basic_info,project_detail,file_uploads,preview step_alias:part```
+```rails generate ultra_light_wizard:wizard Project steps:basic_info,project_detail,file_uploads,preview attributes:name:string,description:text,start_date:date,delivery_date:date step_alias:part```
 
 Output:
 
 ```
-create  app/controllers/project_parts_controller.rb
-create  app/models/project/basic_info.rb
-create  app/views/project_parts/basic_info.html.erb
-create  app/models/project/project_detail.rb
-create  app/views/project_parts/project_detail.html.erb
-create  app/models/project/file_uploads.rb
-create  app/views/project_parts/file_uploads.html.erb
-create  app/models/project/preview.rb
-create  app/views/project_parts/preview.html.erb
- route  resources :projects, only: [:create, :show] do
+generate  scaffold
+  invoke  active_record
+  create    db/migrate/20160201025849_create_projects.rb
+  create    app/models/project.rb
+  invoke    test_unit
+  create      test/models/project_test.rb
+  create      test/fixtures/projects.yml
+  invoke  resource_route
+   route    resources :projects
+  invoke  scaffold_controller
+  create    app/controllers/projects_controller.rb
+  invoke    erb
+  create      app/views/projects
+  create      app/views/projects/index.html.erb
+  create      app/views/projects/edit.html.erb
+  create      app/views/projects/show.html.erb
+  create      app/views/projects/new.html.erb
+  create      app/views/projects/_form.html.erb
+  invoke    test_unit
+  create      test/controllers/projects_controller_test.rb
+  invoke    helper
+  create      app/helpers/projects_helper.rb
+  invoke      test_unit
+  invoke    jbuilder
+  create      app/views/projects/index.json.jbuilder
+  create      app/views/projects/show.json.jbuilder
+  invoke  assets
+  invoke    coffee
+  create      app/assets/javascripts/projects.coffee
+  invoke    scss
+  create      app/assets/stylesheets/projects.scss
+  invoke  scss
+identical    app/assets/stylesheets/scaffolds.scss
+conflict  app/controllers/projects_controller.rb
+Overwrite /cygdrive/c/Users/a_mal_000/OneDrive/code/rails_example/app/controllers/projects_controller.rb? (enter "h" for help) [Ynaqdh] a
+   force  app/controllers/projects_controller.rb
+  create  app/controllers/project_parts_controller.rb
+  create  app/helpers/project_parts_helper.rb
+  create  app/views/project_parts/_part_navigation.html.erb
+  create  app/models/project/name.rb
+  create  app/views/project_parts/name.html.erb
+  create  app/models/project/description.rb
+  create  app/views/project_parts/description.html.erb
+  create  app/models/project/start_date.rb
+  create  app/views/project_parts/start_date.html.erb
+  create  app/models/project/delivery_date.rb
+  create  app/views/project_parts/delivery_date.html.erb
+  create  app/models/project/preview.rb
+  create  app/views/project_parts/preview.html.erb
+   route  resources :projects, only: [:create, :show] do
 resources :project_parts, only: [:edit, :update]
 end
 ```
@@ -96,8 +180,9 @@ Features
   + [DONE] Route helper methods
   + [DONE] Wizard kick-off helper/view
   + [DONE] Forms
-  - Scaffolding of main model controller/views/migration
-  - Support for attributes
+  - Form fields
+  + [DONE] Scaffolding of main model controller/views/migration
+  + [DONE] Support for attributes
   - Support for nested resources
   - Modularize (perhaps extracting sub-generators)
   + [DONE] Customize name conventions
