@@ -58,7 +58,7 @@ generate  scaffold
   invoke  scss
 identical    app/assets/stylesheets/scaffolds.scss
 conflict  app/controllers/projects_controller.rb
-Overwrite /cygdrive/c/Users/a_mal_000/OneDrive/code/rails_example/app/controllers/projects_controller.rb? (enter "h" for help) [Ynaqdh] a
+Overwrite ~/code/rails_example/app/controllers/projects_controller.rb? (enter "h" for help) [Ynaqdh] a
    force  app/controllers/projects_controller.rb
   create  app/controllers/project_steps_controller.rb
   create  app/helpers/project_steps_helper.rb
@@ -123,7 +123,7 @@ generate  scaffold
   invoke  scss
 identical    app/assets/stylesheets/scaffolds.scss
 conflict  app/controllers/projects_controller.rb
-Overwrite /cygdrive/c/Users/a_mal_000/OneDrive/code/rails_example/app/controllers/projects_controller.rb? (enter "h" for help) [Ynaqdh] a
+Overwrite ~/code/rails_example/app/controllers/projects_controller.rb? (enter "h" for help) [Ynaqdh] a
    force  app/controllers/projects_controller.rb
   create  app/controllers/project_parts_controller.rb
   create  app/helpers/project_parts_helper.rb
