@@ -8,6 +8,20 @@ No time to manage a wizard state machine, session variables, or complicated cont
 This RailsConf 2014 talk video explains it all:
 https://www.youtube.com/watch?v=muyfoiKHMMA
 
+Principles
+==========
+
+- REST: wizard steps are represented as REST nested resources under the model resource being built
+- MVC: respects MVC separation of concerns
+- OO: honors OO principles of low coupling and high cohesion
+- Design Patterns: wizard is simply a model Builder
+- DDD: supports domain concepts directly with customizable vocabulary
+- Non-Functional Requirements:
+  - Productivity: minimum effort for adding wizards and wizard steps
+  - Maintainability: minimum code to maintain while adhering to other principles
+  - Performance: stateless design means scalability
+  - Security: stateless design is compatible with Rails security measures
+
 Instructions
 ============
 
@@ -78,6 +92,14 @@ resources :project_steps, only: [:edit, :update]
 end
 ```
 
+Once the files are generated, you can proceed to place your own code customizations in the wizard step models and views.
+
+To kick-off wizard, simply trigger the main model controller create action, and it will transition to the wizard step first step edit action.
+
+For example, the following will kick-off the project wizard by creating a project and automatically redirecting to first step:
+
+```<%= link_to 'New Project', projects_path, method: :post %>```
+
 It will ask you at one point to overwrite projects_controller generated in included scaffold. Type y or a to have it continue.
 
 If you'd like to customize the term "step", you can add a step_alias:(alias) option as in the following:
@@ -143,29 +165,7 @@ resources :project_parts, only: [:edit, :update]
 end
 ```
 
-Once the files are generated, you can proceed to place your own code customizations in the wizard step models and views.
-
-To kick-off wizard, simply trigger the main model controller create action, and it will transition to the wizard step first step edit action.
-
-For example, the following will kick-off the project wizard by creating a project and automatically redirecting to first step:
-
-```<%= link_to 'New Project', projects_path, method: :post %>```
-
 To learn more about the Ultra Light Wizard philosophy and function, please read this [Code Painter](http://www.codepainter.ca) blog post: [Ultra Light & Maintainable Wizard in Rails] (http://www.codepainter.ca/2013/10/ultra-light-maintainable-wizards-in.html)
-
-Principles
-==========
-
-- REST: wizard steps are represented as REST nested resources under the model resource being built
-- MVC: respects MVC separation of concerns
-- OO: honors OO principles of low coupling and high cohesion
-- Design Patterns: wizard is simply a model Builder
-- DDD: supports domain concepts directly with customizable vocabulary
-- Non-Functional Requirements:
-  - Productivity: minimum effort for adding wizards and wizard steps
-  - Maintainability: minimum code to maintain while adhering to other principles
-  - Performance: stateless design means scalability
-  - Security: stateless design is compatible with Rails security measures
 
 Features
 ========
@@ -181,12 +181,12 @@ Features
   + [DONE] Wizard kick-off helper/view
   + [DONE] Forms
   - Form fields
+  - Write automated tests
   + [DONE] Scaffolding of main model controller/views/migration
   + [DONE] Support for attributes
   - Support for nested resources
   - Modularize (perhaps extracting sub-generators)
   + [DONE] Customize name conventions
-  - Write automated tests
 
 License
 =======
