@@ -1,6 +1,7 @@
 <h1><%= file_path.humanize %> wizard</h1>
 <h2><%= step_alias.titleize %>: <%= @wizard_step.humanize %></h2>
 <%%= form_for <%= file_path %>_<%= step_alias %>_model, :url => current_<%= step_alias %>_path, :as => :<%= file_path %> do |f| %>
-  <%%# Please insert the fields of this particular step %>
+  <%%# TODO limit to fields of this particular step %>
+  <%= form_content(true) %>
   <%%= render '<%= step_alias %>_navigation', f: f %>
 <%% end %>

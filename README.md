@@ -1,5 +1,5 @@
-Ultra Light Wizard v0.0.6 (alpha)
-=================================
+Ultra Light Wizard v0.1.0 (beta)
+================================
 
 No time to manage a wizard state machine, session variables, or complicated controllers? Use Ultra Light Wizard!! A RESTful session-less validation-friendly simple wizard approach in Rails.
 
@@ -27,13 +27,13 @@ Instructions
 
 Simply use the following command in place of the Rails scaffold generator, and it will scaffold both standard resource and wizard components
 
-```rails generate ultra_light_wizard:wizard (resource) steps:(step1),(step2),(step3),... attributes:(attribute1:db_type1),(attribute2:db_type2),...```
+```rails generate ultra_light_wizard:scaffold (resource) steps:(step1),(step2),(step3),... attributes:(attribute1:db_type1),(attribute2:db_type2),...```
 
 This will generate wizard step routes, controller, models, and views
 
 Example:
 
-```rails generate ultra_light_wizard:wizard Project steps:basic_info,project_detail,file_uploads,preview attributes:name:string,description:text,start_date:date,delivery_date:date```
+```rails generate ultra_light_wizard:scaffold Project steps:basic_info,project_detail,file_uploads,preview attributes:name:string,description:text,start_date:date,delivery_date:date```
 
 Output:
 
@@ -106,7 +106,7 @@ If you'd like to customize the term "step", you can add a step_alias:(alias) opt
 
 Example:
 
-```rails generate ultra_light_wizard:wizard Project steps:basic_info,project_detail,file_uploads,preview attributes:name:string,description:text,start_date:date,delivery_date:date step_alias:part```
+```rails generate ultra_light_wizard:scaffold Project steps:basic_info,project_detail,file_uploads,preview attributes:name:string,description:text,start_date:date,delivery_date:date step_alias:part```
 
 Output:
 
@@ -170,23 +170,28 @@ To learn more about the Ultra Light Wizard philosophy and function, please read 
 Features
 ========
 
-- Wizard step generator (model part builder MVC components)
+- Ultra Light Wizard scaffold generator
+  + [DONE] Scaffolding of main model controller/views/migration
   + [DONE] Routes
   + [DONE] Controller steps
   + [DONE] Model parts
   + [DONE] View parts
   + [DONE] View navigation
-  + [DONE] Helper (or Controller SuperModule trait) for ultra light wizard support
+  + [DONE] Helper for ultra light wizard support
   + [DONE] Route helper methods
   + [DONE] Wizard kick-off helper/view
   + [DONE] Forms
-  - Form fields
-  - Write automated tests
-  + [DONE] Scaffolding of main model controller/views/migration
   + [DONE] Support for attributes
+  + [DONE] Form fields
+  + [DONE] Custom name conventions
+  - Write automated tests
   - Support for nested resources
   - Modularize (perhaps extracting sub-generators)
-  + [DONE] Customize name conventions
+
+Enhancements
+============
+
+If you are interested in having enhancements implemented, please report via a GitHub issue, describing the problem, providing use case examples, and suggesting solutions to implement. I'd be happy to implement as part of paid work if needed ASAP using the [https://www.codementor.io/andymaleh](CodeMentor platform).
 
 License
 =======

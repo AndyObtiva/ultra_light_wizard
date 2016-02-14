@@ -1,6 +1,6 @@
 module UltraLightWizard
   module Generators
-    class WizardGenerator < Rails::Generators::NamedBase
+    class ScaffoldGenerator < Rails::Generators::NamedBase
       source_root File.expand_path("../../templates", __FILE__)
       def arguments
         args.inject({}) do |output, arg|
@@ -43,7 +43,7 @@ module UltraLightWizard
       end
 
       def scaffold_attributes
-        model_attributes.sub(',', ' ')
+        model_attributes.gsub(',', ' ')
       end
 
       def controller_attribute_names
@@ -58,9 +58,28 @@ module UltraLightWizard
         file_path.pluralize
       end
 
+      def arg_options
+        options.select {|key, value| value}.map {|key, value| "--#{key}"}.join(' ')
+      end
+
+      def form_content(execute=false)
+        if execute #prevents thor from executing too early
+          @form_content ||= lambda {
+            # TODO support formats other than html.erb like html.haml (autodetect)
+            scaffold_form_lines = File.new(Rails.root.join('app', 'views', plural_table_name, '_form.html.erb')).readlines
+            form_start_index = scaffold_form_lines.find_index {|line| line.include?('form')}
+            form_end_index =  scaffold_form_lines.length - 1 - scaffold_form_lines.reverse.find_index {|line| line.include?('actions')}
+            form_content_start_index = form_start_index + 1
+            form_content_end_index = form_end_index - 1
+            extracted_form_lines = scaffold_form_lines[form_content_start_index..form_content_end_index]
+            extracted_form_lines.join
+          }.()
+        end
+      end
+
       desc "Creates a configuration file for a specific application context (e.g. admin). Takes context path as argument (e.g. admin or internal/wiki) to create config/features/[context_path].yml"
       def copy_config
-        generate "scaffold", "#{file_path} #{scaffold_attributes}"
+        generate "scaffold", "#{file_path} #{scaffold_attributes} #{arg_options}"
         template "app/controllers/model_controller.rb.erb", "app/controllers/#{file_path.pluralize}_controller.rb"
         template "app/controllers/wizard_steps_controller.rb.erb", "app/controllers/#{file_path}_#{step_alias.pluralize}_controller.rb"
         template "app/helpers/wizard_steps_helper.rb.erb", "app/helpers/#{file_path}_#{step_alias.pluralize}_helper.rb"
