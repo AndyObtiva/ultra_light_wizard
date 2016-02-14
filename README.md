@@ -191,7 +191,7 @@ Features
 Enhancements
 ============
 
-If you are interested in having enhancements implemented, please report via a GitHub issue, describing the problem, providing use case examples, and suggesting solutions to implement. I'd be happy to implement as part of paid work if needed ASAP using the [https://www.codementor.io/andymaleh](CodeMentor platform).
+If you are interested in having enhancements implemented, please report via a GitHub issue, describing the problem, providing use case examples, and suggesting solutions to implement. I'd be happy to implement as part of paid work if needed ASAP using the [CodeMentor platform](https://www.codementor.io/andymaleh).
 
 License
 =======
