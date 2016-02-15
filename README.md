@@ -125,7 +125,7 @@ If you'd like to customize the term "step", you can add a step_alias:(alias) opt
 Example:
 
 ```
-rails generate ultra_light_wizard:scaffold Project steps:basic_info,project_detail,file_uploads,preview attributes:name:string,description:text,start_date:date,delivery_date:date step_alias:part
+rails generate ultra_light_wizard:scaffold Project step_alias:part steps:basic_info,project_detail,file_uploads,preview attributes:name:string,description:text,start_date:date,delivery_date:date
 ```
 
 Output:
