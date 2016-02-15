@@ -25,15 +25,31 @@ Principles
 Instructions
 ============
 
-Simply use the following command in place of the Rails scaffold generator, and it will scaffold both standard resource and wizard components
+Add the following to your Rails project ```Gemfile```:
 
-```rails generate ultra_light_wizard:scaffold (resource) steps:(step1),(step2),(step3),... attributes:(attribute1:db_type1),(attribute2:db_type2),...```
+```
+gem 'ultra_light_wizard', '~> 0.1.0'
+```
+
+Run the command:
+
+```
+bundle
+```
+
+Then, use the following command in place of the Rails scaffold generator, and it will scaffold both standard resource components and wizard-related components:
+
+```
+rails generate ultra_light_wizard:scaffold (resource) steps:(step1),(step2),(step3),... attributes:(attribute1:db_type1),(attribute2:db_type2),...
+```
 
 This will generate wizard step routes, controller, models, and views
 
 Example:
 
-```rails generate ultra_light_wizard:scaffold Project steps:basic_info,project_detail,file_uploads,preview attributes:name:string,description:text,start_date:date,delivery_date:date```
+```
+rails generate ultra_light_wizard:scaffold Project steps:basic_info,project_detail,file_uploads,preview attributes:name:string,description:text,start_date:date,delivery_date:date
+```
 
 Output:
 
@@ -98,7 +114,9 @@ To kick-off wizard, simply trigger the main model controller create action, and 
 
 For example, the following will kick-off the project wizard by creating a project and automatically redirecting to first step:
 
-```<%= link_to 'New Project', projects_path, method: :post %>```
+```
+<%= link_to 'New Project', projects_path, method: :post %>
+```
 
 It will ask you at one point to overwrite projects_controller generated in included scaffold. Type y or a to have it continue.
 
@@ -106,7 +124,9 @@ If you'd like to customize the term "step", you can add a step_alias:(alias) opt
 
 Example:
 
-```rails generate ultra_light_wizard:scaffold Project steps:basic_info,project_detail,file_uploads,preview attributes:name:string,description:text,start_date:date,delivery_date:date step_alias:part```
+```
+rails generate ultra_light_wizard:scaffold Project steps:basic_info,project_detail,file_uploads,preview attributes:name:string,description:text,start_date:date,delivery_date:date step_alias:part
+```
 
 Output:
 
