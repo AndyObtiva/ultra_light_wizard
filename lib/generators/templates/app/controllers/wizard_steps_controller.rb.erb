@@ -5,15 +5,15 @@ class <%= class_name %><%= step_alias.pluralize.camelize %>Controller < Applicat
   <%= step_alias.pluralize.upcase %> = %w(<%= steps.to_a.join(' ') %>)
 
   def edit
-      if <%= file_path %>_<%= step_alias %>_model.editable?
-        if <%= step_alias %>.present?
-          render <%= step_alias %>
-        else
-          render "#{Rails.root.to_s}/public/404.html", :layout => false, :status => 404
-        end
+    if <%= file_path %>_<%= step_alias %>_model.editable?
+      if <%= step_alias %>.present?
+        render <%= step_alias %>
       else
-        redirect_to :back, :alert => I18n.t("<%= file_path %>.#{@<%= file_path %>.status}_editable_error")
+        render "#{Rails.root.to_s}/public/404.html", :layout => false, :status => 404
       end
+    else
+      redirect_to :back, :alert => I18n.t("<%= file_path %>.#{@<%= file_path %>.status}_editable_error")
+    end
   end
 
   def update

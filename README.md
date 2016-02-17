@@ -1,4 +1,4 @@
-Ultra Light Wizard v0.1.0 (beta)
+Ultra Light Wizard v0.1.1 (beta)
 ================================
 
 No time to manage a wizard state machine, session variables, or complicated controllers? Use Ultra Light Wizard!! A RESTful session-less validation-friendly simple wizard approach in Rails.

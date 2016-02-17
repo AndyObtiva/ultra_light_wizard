@@ -42,6 +42,10 @@ module UltraLightWizard
         end
       end
 
+      def attributes_names
+        hashed_model_attributes.keys
+      end
+
       def scaffold_attributes
         model_attributes.gsub(',', ' ')
       end
@@ -80,7 +84,20 @@ module UltraLightWizard
       desc "Creates a configuration file for a specific application context (e.g. admin). Takes context path as argument (e.g. admin or internal/wiki) to create config/features/[context_path].yml"
       def copy_config
         generate "scaffold", "#{file_path} #{scaffold_attributes} #{arg_options}"
-        template "app/controllers/model_controller.rb.erb", "app/controllers/#{file_path.pluralize}_controller.rb"
+
+        gsub_file "app/controllers/#{file_path.pluralize}_controller.rb",
+          "@#{singular_table_name}.save\n",
+          "@#{singular_table_name}.save(validation: false)\n"
+        gsub_file "app/controllers/#{file_path.pluralize}_controller.rb",
+          "redirect_to @#{singular_table_name}, notice: 'Video was successfully created.'",
+          "redirect_to edit_#{file_path}_#{file_path}_#{step_alias}_path(@#{singular_table_name}, #{orm_class}#{step_alias.camelize.titleize.pluralize}Helper::#{step_alias.pluralize.upcase}.first)"
+        inject_into_file "app/controllers/#{file_path.pluralize}_controller.rb",
+          after: "def #{singular_table_name}_params\n" do
+          "      return {} unless params[:#{singular_table_name}].present?\n"
+        end
+        gsub_file "app/views/#{file_path.pluralize}/index.html.erb",
+          "new_#{singular_table_name}_path",
+          "#{file_path.pluralize}_path, method: :post"
         template "app/controllers/wizard_steps_controller.rb.erb", "app/controllers/#{file_path}_#{step_alias.pluralize}_controller.rb"
         template "app/helpers/wizard_steps_helper.rb.erb", "app/helpers/#{file_path}_#{step_alias.pluralize}_helper.rb"
         template "app/views/wizard_step_navigation_view.html.erb", "app/views/#{file_path}_#{step_alias.pluralize}/_#{step_alias}_navigation.html.erb"
