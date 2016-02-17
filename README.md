@@ -87,9 +87,10 @@ generate  scaffold
   create      app/assets/stylesheets/projects.scss
   invoke  scss
 identical    app/assets/stylesheets/scaffolds.scss
-conflict  app/controllers/projects_controller.rb
-Overwrite ~/code/rails_example/app/controllers/projects_controller.rb? (enter "h" for help) [Ynaqdh] a
-   force  app/controllers/projects_controller.rb
+    gsub  app/controllers/projects_controller.rb
+    gsub  app/controllers/projects_controller.rb
+  insert  app/controllers/projects_controller.rb
+    gsub  app/views/projects/index.html.erb
   create  app/controllers/project_steps_controller.rb
   create  app/helpers/project_steps_helper.rb
   create  app/views/project_steps/_step_navigation.html.erb
@@ -117,8 +118,6 @@ For example, the following will kick-off the project wizard by creating a projec
 ```
 <%= link_to 'New Project', projects_path, method: :post %>
 ```
-
-It will ask you at one point to overwrite projects_controller generated in included scaffold. Type y or a to have it continue.
 
 If you'd like to customize the term "step", you can add a step_alias:(alias) option as in the following:
 
@@ -164,9 +163,10 @@ generate  scaffold
   create      app/assets/stylesheets/projects.scss
   invoke  scss
 identical    app/assets/stylesheets/scaffolds.scss
-conflict  app/controllers/projects_controller.rb
-Overwrite ~/code/rails_example/app/controllers/projects_controller.rb? (enter "h" for help) [Ynaqdh] a
-   force  app/controllers/projects_controller.rb
+    gsub  app/controllers/projects_controller.rb
+    gsub  app/controllers/projects_controller.rb
+  insert  app/controllers/projects_controller.rb
+    gsub  app/views/projects/index.html.erb
   create  app/controllers/project_parts_controller.rb
   create  app/helpers/project_parts_helper.rb
   create  app/views/project_parts/_part_navigation.html.erb
