@@ -28,7 +28,7 @@ Instructions
 Add the following to your Rails project ```Gemfile```:
 
 ```
-gem 'ultra_light_wizard', '~> 0.1.0'
+gem 'ultra_light_wizard', '~> 0.1.1'
 ```
 
 Run the command:
