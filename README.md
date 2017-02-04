@@ -1,7 +1,7 @@
 Ultra Light Wizard v0.1.1 (beta)
 ================================
 
-No time to manage a wizard state machine, session variables, or complicated controllers? Use Ultra Light Wizard!! A RESTful session-less validation-friendly simple wizard approach in Rails.
+No time to manage a wizard state machine, session variables, or complicated controllers? Use Ultra Light Wizard!! A RESTful session-less validation-friendly simple wizard architectural pattern in Rails.
 
 ![Ultra Light Wizard Image](https://cdn.rawgit.com/AndyObtiva/ultra_light_wizard/master/ultra_light_wizard.jpg)
 
@@ -21,6 +21,13 @@ Principles
   - Maintainability: minimum code to maintain while adhering to other principles
   - Performance: stateless design means scalability
   - Security: stateless design is compatible with Rails security measures
+
+Details
+=======
+
+To learn more about the Ultra Light Wizard architectural pattern philosophy and function, please read this [Code Painter](http://www.codepainter.ca) blog post: [Ultra Light & Maintainable Wizard in Rails] (http://www.codepainter.ca/2013/10/ultra-light-maintainable-wizards-in.html)
+
+**Note**: Since Ultra Light Wizard is an architectural pattern that can be applied whether using this library or not, it is more important to understand it well first through watching the video and reading the article provided above. Afterward, you may use the library to get started quickly via Rails scaffolding for new project models or otherwise avoid by applying pattern manually for existing project models.
 
 Instructions
 ============
@@ -185,28 +192,26 @@ resources :project_parts, only: [:edit, :update]
 end
 ```
 
-To learn more about the Ultra Light Wizard philosophy and function, please read this [Code Painter](http://www.codepainter.ca) blog post: [Ultra Light & Maintainable Wizard in Rails] (http://www.codepainter.ca/2013/10/ultra-light-maintainable-wizards-in.html)
-
 Features
 ========
 
 - Ultra Light Wizard scaffold generator
-  + [DONE] Scaffolding of main model controller/views/migration
-  + [DONE] Routes
-  + [DONE] Controller steps
-  + [DONE] Model parts
-  + [DONE] View parts
-  + [DONE] View navigation
-  + [DONE] Helper for ultra light wizard support
-  + [DONE] Route helper methods
-  + [DONE] Wizard kick-off helper/view
-  + [DONE] Forms
-  + [DONE] Support for attributes
-  + [DONE] Form fields
-  + [DONE] Custom name conventions
-  - Write automated tests
-  - Support for nested resources
-  - Modularize (perhaps extracting sub-generators)
+  + Scaffolding of main model controller/views/migration
+  + Routes
+  + Controller steps
+  + Model parts
+  + View parts
+  + View navigation
+  + Helper for ultra light wizard support
+  + Route helper methods
+  + Wizard kick-off helper/view
+  + Forms
+  + Support for attributes
+  + Form fields
+  + Custom name conventions
+  - [UPCOMING] Write automated tests
+  - [UPCOMING] Support for nested resources
+  - [UPCOMING] Modularize (perhaps extracting sub-generators)
 
 Enhancements
 ============
