@@ -20,11 +20,7 @@ module UltraLightWizard
       end
 
       def controller_class_name
-        file_path.pluralize.titleize
-      end
-
-      def orm_class
-        file_path.camelize.titleize
+        "#{class_name.pluralize}Controller"
       end
 
       def index_helper
@@ -86,11 +82,18 @@ module UltraLightWizard
         generate "scaffold", "#{file_path} #{scaffold_attributes} #{arg_options}"
 
         gsub_file "app/controllers/#{file_path.pluralize}_controller.rb",
+          "class #{controller_class_name} < ApplicationController",
+          <<-CONTENT
+class #{controller_class_name} < ApplicationController
+  include #{class_name}#{step_alias.pluralize.camelize}Helper
+  helper #{class_name}#{step_alias.pluralize.camelize}Helper
+          CONTENT
+        gsub_file "app/controllers/#{file_path.pluralize}_controller.rb",
           "@#{singular_table_name}.save\n",
           "@#{singular_table_name}.save(validation: false)\n"
         gsub_file "app/controllers/#{file_path.pluralize}_controller.rb",
-          "redirect_to @#{singular_table_name}, notice: 'Video was successfully created.'",
-          "redirect_to edit_#{file_path}_#{file_path}_#{step_alias}_path(@#{singular_table_name}, #{orm_class}#{step_alias.camelize.titleize.pluralize}Helper::#{step_alias.pluralize.upcase}.first)"
+          "redirect_to @#{singular_table_name}, notice: '#{class_name} was successfully created.'",
+          "redirect_to edit_#{file_path}_#{file_path}_#{step_alias}_path(@#{singular_table_name}, #{class_name}#{step_alias.camelize.titleize.pluralize}Helper::#{step_alias.pluralize.upcase}.first)"
         inject_into_file "app/controllers/#{file_path.pluralize}_controller.rb",
           after: "def #{singular_table_name}_params\n" do
           "      return {} unless params[:#{singular_table_name}].present?\n"

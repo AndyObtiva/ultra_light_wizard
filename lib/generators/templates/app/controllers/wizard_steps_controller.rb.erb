@@ -1,8 +1,7 @@
 class <%= class_name %><%= step_alias.pluralize.camelize %>Controller < ApplicationController
   include <%= class_name %><%= step_alias.pluralize.camelize %>Helper
+  helper <%= class_name %><%= step_alias.pluralize.camelize %>Helper
   before_action :load_<%= file_path %>
-
-  <%= step_alias.pluralize.upcase %> = %w(<%= steps.to_a.join(' ') %>)
 
   def edit
     if <%= file_path %>_<%= step_alias %>_model.editable?

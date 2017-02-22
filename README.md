@@ -1,4 +1,4 @@
-Ultra Light Wizard v0.1.1 (beta)
+Ultra Light Wizard v0.1.2 (beta)
 ================================
 
 No time to manage a wizard state machine, session variables, or complicated controllers? Use Ultra Light Wizard!! A RESTful session-less validation-friendly simple wizard architectural pattern in Rails.
@@ -35,7 +35,7 @@ Instructions
 Add the following to your Rails project ```Gemfile```:
 
 ```
-gem 'ultra_light_wizard', '~> 0.1.1'
+gem 'ultra_light_wizard', '~> 0.1.2'
 ```
 
 Run the command:
@@ -212,11 +212,19 @@ Features
   - [UPCOMING] Write automated tests
   - [UPCOMING] Support for nested resources
   - [UPCOMING] Modularize (perhaps extracting sub-generators)
+  - [UPCOMING] Haml and Slim templates
 
 Enhancements
 ============
 
 If you are interested in having enhancements implemented, please report via a GitHub issue, describing the problem, providing use case examples, and suggesting solutions to implement.
+
+History
+=======
+
+v0.1.2 ensure resource creation redirects to first step / include step helper in resource controller
+v0.1.1 includes permitted params and edit/update actions
+v0.1.0 initial implementation
 
 License
 =======
