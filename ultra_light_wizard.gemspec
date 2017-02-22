@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Andy Maleh"]
-  s.date = "2016-02-17"
+  s.date = "2017-02-22"
   s.description = "Ultra light & maintainble wizards in Rails that honor REST, MVC, and OO with minimal writing of code involved and maximum flexibility"
   s.email = "andy.am@gmail.com"
   s.extra_rdoc_files = [
@@ -57,3 +57,4 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<jeweler>, ["~> 1.8.8"])
   end
 end
+
