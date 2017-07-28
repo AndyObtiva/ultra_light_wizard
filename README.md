@@ -209,7 +209,6 @@ Features
   + Support for attributes
   + Form fields
   + Custom name conventions
-  - [UPCOMING] Write automated tests
   - [UPCOMING] Support for nested resources
   - [UPCOMING] Modularize (perhaps extracting sub-generators)
   - [UPCOMING] Haml and Slim templates
