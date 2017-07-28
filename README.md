@@ -212,6 +212,10 @@ Features
   - [UPCOMING] Support for nested resources
   - [UPCOMING] Modularize (perhaps extracting sub-generators)
   - [UPCOMING] Haml and Slim templates
+  - [UPCOMING] JS Support (jQuery)
+  - [UPCOMING] JS Support (Knockout)
+  - [UPCOMING] JS Support (REACT)
+  - [UPCOMING] JS Support (Cycle.js)
 
 Enhancements
 ============
