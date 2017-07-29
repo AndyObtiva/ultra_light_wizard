@@ -1,6 +1,7 @@
 ENV['APP_ENV'] = 'test'
 require 'rubygems'
 require 'bundler'
+require 'puts_debuggerer'
 begin
   Bundler.setup(:default, :test)
 rescue Bundler::BundlerError => e
