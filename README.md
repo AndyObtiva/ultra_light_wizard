@@ -210,12 +210,9 @@ Features
   + Form fields
   + Custom name conventions
   - [UPCOMING] Support for nested resources
-  - [UPCOMING] Modularize (perhaps extracting sub-generators)
   - [UPCOMING] Haml and Slim templates
-  - [UPCOMING] JS Support (jQuery)
-  - [UPCOMING] JS Support (Knockout)
-  - [UPCOMING] JS Support (REACT)
-  - [UPCOMING] JS Support (Cycle.js)
+  - [UPCOMING] JS Support
+  - [UPCOMING] Styling and easily stylable markup
 
 Enhancements
 ============
