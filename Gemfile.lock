@@ -91,6 +91,8 @@ GEM
       semver2
     json (2.1.0)
     jwt (1.5.6)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.6)
@@ -189,6 +191,7 @@ DEPENDENCIES
   capybara
   coveralls
   jeweler (~> 2.3.7)
+  launchy
   puts_debuggerer (~> 0.7.1)
   rails (~> 4.2.9)
   rspec-rails

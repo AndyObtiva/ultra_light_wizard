@@ -15,4 +15,5 @@ group :test do
   gem 'coveralls'
   gem 'ultra_light_wizard', path: '.' #used in specs
   gem 'sqlite3'
+  gem 'launchy'
 end
