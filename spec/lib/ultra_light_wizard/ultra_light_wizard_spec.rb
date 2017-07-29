@@ -11,18 +11,11 @@ describe UltraLightWizard do
     FileUtils.rm_rf app_rails_copy
   end
   it 'provides a rails generator when installed in a sample Rails app' do
-    generators = `
-    cd #{app_rails_copy}
-    rails generate
-    `
-    expect(generators).to include("ultra_light_wizard:scaffold")
-  end
-  it 'provides a rails generator when installed in a sample Rails app' do
-    system "cd #{app_rails_copy}
+    result = system "cd #{app_rails_copy}
     rails generate ultra_light_wizard:scaffold project steps:basic_info,detail,file_upload,preview attributes:name:string,description:text,start_date:datetime,delivery_date:datetime
+    rake db:migrate
     rake"
-    wizard_views_directory = File.join(app_rails_copy, 'app', 'views', 'projects')
-    expect(File.exists?(wizard_views_directory)).to be_truthy
+    expect(result).to be_truthy
   end
 
   # TODO test the end result of generation instead of the generated output
