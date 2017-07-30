@@ -209,10 +209,10 @@ Features
   + Support for attributes
   + Form fields
   + Custom name conventions
-  - [UPCOMING] Support for nested resources
-  - [UPCOMING] Haml and Slim templates
-  - [UPCOMING] JS Support
-  - [UPCOMING] Styling and easily stylable markup
+  - [UPCOMING] Slim support
+  - [UPCOMING] Haml support
+  - [UPCOMING] JS Ajax support
+  - [UPCOMING] Basic styling and easily stylable markup
 
 Enhancements
 ============
