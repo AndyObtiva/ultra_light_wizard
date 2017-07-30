@@ -110,12 +110,22 @@ class #{controller_class_name} < ApplicationController
           template "app/views/wizard_step_view.html.erb", "app/views/#{file_path}_#{step_alias.pluralize}/#{step}.html.erb"
         end
         wizard_route_content = <<-CONTENT
-resources :#{plural_file_name}, only: [:create, :show] do
+resources :#{plural_file_name} do
     resources :#{file_path}_#{step_alias.pluralize}, only: [:edit, :update]
   end
         CONTENT
-        routes_content = File.new(Rails.root.join('config', 'routes.rb')).read
-        route wizard_route_content unless routes_content.include?(wizard_route_content)
+        route_file = Rails.root.join('config', 'routes.rb')
+        routes_content = File.new(route_file).read
+        main_route = "resources :#{plural_file_name}\n"
+        if routes_content.include?(main_route)
+          # replace existing route
+          gsub_file "config/routes.rb",
+            main_route,
+            wizard_route_content
+        else
+          # avoid messing with existing route if already has a do end block open
+          route wizard_route_content
+        end
       end
     end
   end
