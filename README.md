@@ -209,8 +209,6 @@ Features
   + Support for attributes
   + Form fields
   + Custom name conventions
-  - [UPCOMING] Slim support
-  - [UPCOMING] Haml support
   - [UPCOMING] JS Ajax support
   - [UPCOMING] Basic styling and easily stylable markup
 
