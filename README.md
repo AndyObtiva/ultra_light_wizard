@@ -209,8 +209,8 @@ Features
   + Support for attributes
   + Form fields
   + Custom name conventions
-  - [UPCOMING] JS Ajax support
   - [UPCOMING] Basic styling and easily stylable markup
+  - [UPCOMING] JS Ajax support
 
 Enhancements
 ============

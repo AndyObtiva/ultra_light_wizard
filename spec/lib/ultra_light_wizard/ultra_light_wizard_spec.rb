@@ -13,8 +13,10 @@ describe UltraLightWizard do
   end
   it 'provides a rails generator when installed in a sample Rails app' do
     result = system "cd #{app_rails_copy}
+    rake db:reset
     rails generate ultra_light_wizard:scaffold project steps:basic_info,detail,file_upload,preview attributes:name:string,description:text,start_date:datetime,delivery_date:datetime
     rake db:migrate
+    rake db:test:prepare
     rake"
     expect(result).to be_truthy
   end
