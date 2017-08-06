@@ -29,6 +29,9 @@ To learn more about the Ultra Light Wizard architectural pattern philosophy and 
 
 **Note**: Since Ultra Light Wizard is an architectural pattern that can be applied whether using this library or not, it is more important to understand it well first through watching the video and reading the article provided above. Afterward, you may use the library to get started quickly via Rails scaffolding for new project models or otherwise avoid by applying pattern manually for existing project models.
 
+![Ultra Light Wizard Step Breadcrumb](https://cdn.rawgit.com/AndyObtiva/ultra_light_wizard/master/ultra_light_wizard_step_breadcrumb.png)
+
+
 Instructions
 ============
 
