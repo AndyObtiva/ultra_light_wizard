@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib".freeze]
   s.authors = ["Andy Maleh".freeze]
-  s.date = "2017-07-30"
+  s.date = "2017-08-06"
   s.description = "Ultra light & maintainble wizards in Rails that honor REST, MVC, and OO with minimal writing of code involved and maximum flexibility".freeze
   s.email = "andy.am@gmail.com".freeze
   s.extra_rdoc_files = [
@@ -27,9 +27,11 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
+    "lib/generators/templates/app/assets/stylesheets/wizard_steps.scss",
     "lib/generators/templates/app/controllers/wizard_steps_controller.rb.erb",
     "lib/generators/templates/app/helpers/wizard_steps_helper.rb.erb",
     "lib/generators/templates/app/models/wizard_step_model.rb.erb",
+    "lib/generators/templates/app/views/wizard_step_breadcrumb_view.html.erb",
     "lib/generators/templates/app/views/wizard_step_navigation_view.html.erb",
     "lib/generators/templates/app/views/wizard_step_view.html.erb",
     "lib/generators/ultra_light_wizard/scaffold_generator.rb",
@@ -93,7 +95,8 @@ Gem::Specification.new do |s|
     "spec/lib/ultra_light_wizard/ultra_light_wizard_spec.rb",
     "spec/spec_helper.rb",
     "ultra_light_wizard.gemspec",
-    "ultra_light_wizard.jpg"
+    "ultra_light_wizard.jpg",
+    "ultra_light_wizard_step_breadcrumb.png"
   ]
   s.homepage = "http://github.com/AndyObtiva/ultra_light_wizard".freeze
   s.licenses = ["MIT".freeze]
@@ -106,15 +109,24 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<puts_debuggerer>.freeze, ["~> 0.7.1"])
       s.add_development_dependency(%q<rails>.freeze, ["~> 4.2.9"])
+      s.add_development_dependency(%q<rspec-rails>.freeze, ["~> 3.6.0"])
+      s.add_development_dependency(%q<sass-rails>.freeze, ["~> 5.0"])
+      s.add_development_dependency(%q<coffee-rails>.freeze, ["~> 4.1.0"])
       s.add_development_dependency(%q<jeweler>.freeze, ["~> 2.3.7"])
     else
       s.add_dependency(%q<puts_debuggerer>.freeze, ["~> 0.7.1"])
       s.add_dependency(%q<rails>.freeze, ["~> 4.2.9"])
+      s.add_dependency(%q<rspec-rails>.freeze, ["~> 3.6.0"])
+      s.add_dependency(%q<sass-rails>.freeze, ["~> 5.0"])
+      s.add_dependency(%q<coffee-rails>.freeze, ["~> 4.1.0"])
       s.add_dependency(%q<jeweler>.freeze, ["~> 2.3.7"])
     end
   else
     s.add_dependency(%q<puts_debuggerer>.freeze, ["~> 0.7.1"])
     s.add_dependency(%q<rails>.freeze, ["~> 4.2.9"])
+    s.add_dependency(%q<rspec-rails>.freeze, ["~> 3.6.0"])
+    s.add_dependency(%q<sass-rails>.freeze, ["~> 5.0"])
+    s.add_dependency(%q<coffee-rails>.freeze, ["~> 4.1.0"])
     s.add_dependency(%q<jeweler>.freeze, ["~> 2.3.7"])
   end
 end
