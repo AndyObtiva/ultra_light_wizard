@@ -1,0 +1,8 @@
+<div class="step_breadcrumbs">
+  <%% <%= file_path.camelize %><%= step_alias.pluralize.camelize %>Helper::STEPS.each_with_index do |breadcrumb_step, index| %>
+    <%%= link_to edit_<%= file_path %>_<%= step_alias %>_model_path(breadcrumb_step), class: "step_breadcrumb #{"selected_step" if breadcrumb_step == current_step}" do %>
+      <div class="step_number"><%%= step_number = index + 1 %></div>
+      <div class="step_name"><%%= breadcrumb_step.humanize %></div>
+    <%% end %>
+  <%% end %>
+</div>

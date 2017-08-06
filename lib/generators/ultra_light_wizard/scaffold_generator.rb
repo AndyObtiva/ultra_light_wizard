@@ -104,6 +104,8 @@ class #{controller_class_name} < ApplicationController
         template "app/controllers/wizard_steps_controller.rb.erb", "app/controllers/#{file_path}_#{step_alias.pluralize}_controller.rb"
         template "app/helpers/wizard_steps_helper.rb.erb", "app/helpers/#{file_path}_#{step_alias.pluralize}_helper.rb"
         template "app/views/wizard_step_navigation_view.html.erb", "app/views/#{file_path}_#{step_alias.pluralize}/_#{step_alias}_navigation.html.erb"
+        template "app/views/wizard_step_breadcrumb_view.html.erb", "app/views/#{file_path}_#{step_alias.pluralize}/_#{step_alias}_breadcrumb.html.erb"
+        template "app/assets/stylesheets/wizard_steps.scss", "app/assets/stylesheets/#{file_path}_#{step_alias.pluralize}.scss"
         steps.each do |step|
           @wizard_step = step
           template "app/models/wizard_step_model.rb.erb", "app/models/#{file_path}/#{step}.rb"

@@ -220,6 +220,7 @@ If you are interested in having enhancements implemented, please report via a Gi
 History
 =======
 
+v0.2.0 Basic styling and easily stylable markup, including step breadcrumb
 v0.1.3 test coverage with feature specs / fixed issue 4 Generate routes in the right order
 v0.1.2 ensure resource creation redirects to first step / include step helper in resource controller
 v0.1.1 includes permitted params and edit/update actions
