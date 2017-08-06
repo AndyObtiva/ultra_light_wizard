@@ -212,7 +212,7 @@ Features
   + Support for attributes
   + Form fields
   + Custom name conventions
-  - [UPCOMING] Basic styling and easily stylable markup
+  + Wizard step breadcrumb with easily stylable semantic markup
   - [UPCOMING] JS Ajax support
 
 Enhancements
