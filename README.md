@@ -11,13 +11,13 @@ https://www.youtube.com/watch?v=muyfoiKHMMA
 Principles
 ==========
 
-- REST: wizard steps are represented as REST nested resources under the model resource being built
+- REST: wizard (multi-step form) steps are represented as REST nested resources under the model resource being built
 - MVC: respects MVC separation of concerns
 - OO: honors OO principles of low coupling and high cohesion
-- Design Patterns: wizard is simply a model Builder
+- Design Patterns: wizard (multi-step form) is simply a model Builder
 - DDD: supports domain concepts directly with customizable vocabulary
 - Non-Functional Requirements:
-  - Productivity: minimum effort for adding wizards and wizard steps
+  - Productivity: minimum effort for adding wizards (multi-step forms) and wizard steps
   - Maintainability: minimum code to maintain while adhering to other principles
   - Performance: stateless design means scalability
   - Security: stateless design is compatible with Rails security measures
@@ -53,7 +53,7 @@ Then, use the following command in place of the Rails scaffold generator, and it
 rails generate ultra_light_wizard:scaffold (resource) steps:(step1),(step2),(step3),... attributes:(attribute1:db_type1),(attribute2:db_type2),...
 ```
 
-This will generate wizard step routes, controller, models, and views
+This will generate wizard (multi-step form) step routes, controller, models, and views
 
 Example:
 
