@@ -8,6 +8,9 @@ No time to manage a wizard state machine, session variables, or complicated cont
 This RailsConf 2014 talk video explains it all:
 https://www.youtube.com/watch?v=muyfoiKHMMA
 
+And, this blog summarizes it:
+https://andymaleh.blogspot.com/2013/10/ultra-light-maintainable-wizards-in.html
+
 Principles
 ==========
 
@@ -25,7 +28,7 @@ Principles
 Details
 =======
 
-To learn more about the Ultra Light Wizard architectural pattern philosophy and function, please read this blog post: [Ultra Light & Maintainable Wizard in Rails](http://www.codemaster.blog/2013/10/ultra-light-maintainable-wizards-in.html)
+To learn more about the Ultra Light Wizard architectural pattern philosophy and function, please read this blog post: [Ultra Light & Maintainable Wizard in Rails](https://andymaleh.blogspot.com/2013/10/ultra-light-maintainable-wizards-in.html)
 
 **Note**: Since Ultra Light Wizard is an architectural pattern that can be applied whether using this library or not, it is more important to understand it well first through watching the video and reading the article provided above. Afterward, you may use the library to get started quickly via Rails scaffolding for new project models or otherwise avoid by applying pattern manually for existing project models.
 
